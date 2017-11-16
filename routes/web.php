@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/**
+ * Routes to user auth
+ * =====================================
+ */
+
+Route::get('/login', 'AuthController@login');
+Route::post('/login', [ 'as' => 'user.login', 'uses' => 'AuthController@auth']);
+Route::get('/dashboard', [ 'as' => 'user.dashboard', 'uses' => 'DashboardController@index']);
