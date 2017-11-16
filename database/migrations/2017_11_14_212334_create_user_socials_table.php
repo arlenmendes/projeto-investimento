@@ -15,7 +15,7 @@ class CreateUserSocialsTable extends Migration
     {
         Schema::create('user_socials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsiged();
+            $table->integer('user_id')->unsigned();
             $table->string('social_network');
             $table->string('social_id');
             $table->string('social_email');
@@ -37,7 +37,7 @@ class CreateUserSocialsTable extends Migration
     public function down()
     {
         Schema::create('user_socials', function (Blueprint $table) {
-            $table->dropForeign('user_socials_user_id_foreing');
+            $table->dropForeign('user_socials_users_id_foreing');
             $table->dropForeign('user_socials_social_email_foreing');
         });
         Schema::dropIfExists('user_socials');
